@@ -1,12 +1,13 @@
 import { Link } from "react-router-dom"
 import { useContext } from "react"
-import { StaticDataContext } from "global/context/StaticDataContext"
-import { AddToCart } from "components";
+import { StaticDataContext } from "global/context/StaticDataContext";
+import { CartDataContext } from "global/context/CartDataContext";
+import { AddToCart, QuantityCart } from "components";
 
 
 export const BookCards = ({ Book = [] }) => {
     const {language} = useContext(StaticDataContext);
-
+    const { isInCart } = useContext(CartDataContext)
     return (
         <section className="text-gray-600 body-font">
             <div className="container px-5 py-24 mx-auto">
@@ -17,10 +18,18 @@ export const BookCards = ({ Book = [] }) => {
                                 <img alt="ecommerce" className="object-cover object-center w-full h-full block" src={Book.pictures} />
                             </Link> 
                             <div className="mt-4">
-                                <h2 className="text-center text-gray-900 title-font text-lg font-medium">{Book.name}</h2>
-                                <div className="flex justify-between mt-4">
-                                <h2 className="text-center text-orange-500 title-font text-lg font-medium">{Book.variations[0].price}₾</h2>
-                                <AddToCart  BookId={Book.id}/>
+                                <h2 className="text-center text-gray-900 title-font text-lg font-medium h-[80px] overflow-hidden">{Book.name}</h2>
+                                <div className="flex justify-between mt-4 items-center">
+                                    <h2 className="text-center text-orange-500 title-font text-lg font-medium">{Book.variations[0].price}₾</h2>
+                                    {isInCart(Book.id) ? (
+                                        <QuantityCart 
+                                            bookId={Book.id}
+                                        />
+                                    ) : (
+                                        <AddToCart 
+                                            book={Book}
+                                        />
+                                    )}
                                 </div>
                             </div>
                         </div>

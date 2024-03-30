@@ -21,17 +21,17 @@ export const BestAuthor = () => {
   }, [])
 
   return (
-    <section class="text-gray-600 body-font">
+    <section className="text-gray-600 body-font">
       <h3 className='text-2xl pt-20 text-orange-600'>{translate.weekAuthor.title}</h3>
-      <div class="container px-5 py-24 mx-auto flex flex-wrap">
-        <div class="lg:w-1/2 w-full mb-10 lg:mb-0 rounded-lg overflow-hidden">
-          <img alt="feature" class="object-cover object-center h-full w-full" src={bestAuthor.img} />
+      <div className="container px-5 py-24 mx-auto flex flex-wrap">
+        <div className="lg:w-1/2 w-full mb-10 lg:mb-0 rounded-lg overflow-hidden">
+          <img alt="feature" className="object-cover object-center h-full w-full" src={bestAuthor.img} />
         </div>
-        <div class="flex flex-col flex-wrap lg:py-6 -mb-10 lg:w-1/2 lg:pl-12 lg:text-left text-center">
-          <div class="flex flex-col mb-10 lg:items-start items-center">
-            <div class="flex-grow">
-              <h2 class="text-gray-900 text-lg title-font font-medium mb-3">{bestAuthor.fullname}</h2>
-              <p class="leading-relaxed text-base">{bestAuthor.description}</p>
+        <div className="flex flex-col flex-wrap lg:py-6 -mb-10 lg:w-1/2 lg:pl-12 lg:text-left text-center">
+          <div className="flex flex-col mb-10 lg:items-start items-center">
+            <div className="flex-grow">
+              <h2 className="text-gray-900 text-lg title-font font-medium mb-3">{bestAuthor.fullname}</h2>
+              <p className="leading-relaxed text-base">{bestAuthor.description}</p>
             </div>
           </div>
         </div>
