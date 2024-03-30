@@ -8,14 +8,13 @@ import { ProductCards } from 'components/cards/ProductCards';
 
 export const Products = () => {
   const { productID } = useParams();
-  const [products, setProducts] = useState([])
+  const [data, setData] = useState(null) // null / {}
 
   useEffect (() => {
     const fetchBook = async () => {
-      const products = await getSingleProductID(productID);
-      if(products) {
-        setProducts(products)
-        console.log(products)
+      const apiData = await getSingleProductID(productID);
+      if(apiData) {
+        setData(apiData)
       }
     }
     if (productID) {
@@ -25,7 +24,9 @@ export const Products = () => {
 
   return ( 
     <div className=''>
-         <ProductCards product={products}/> 
+      {data !== null ? 
+        <ProductCards product={data}/> 
+      : null }
     </div>
   )
 }
