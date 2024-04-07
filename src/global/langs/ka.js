@@ -10,7 +10,8 @@ export const kaLang = {
         about: 'შესახებ',
         item: 'ნივთი',
         login: 'შესვლა',
-        registration: 'რეგისტრაცია'
+        registration: 'რეგისტრაცია',
+        cart: 'კალათა'
     },
     weekAuthor: {
         title: 'კვირის ავტორი',

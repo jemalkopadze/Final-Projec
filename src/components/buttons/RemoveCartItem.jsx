@@ -10,7 +10,7 @@ export const RemoveCartItem = (props) => {
     }
 
     return (
-        <button className={`cart_btn flex w-1/2 justify-end bg-red-500 text-white px-3 py-1 rounded-md`}
+        <button className={`cart_btn flex w-1/3 justify-center bg-red-500 text-white px-3 py-1 rounded-md`}
             onClick={removeItem}
         >
             {'წაშლა'}

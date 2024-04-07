@@ -7,13 +7,11 @@ import { CartDataContext } from 'global/context/CartDataContext'
 import { LoginForm } from '../modals'
 import { ProfileMenu } from 'components/modals/ProfileMenu'
 import Logo from 'images/fox.png'
-import Geo from 'images/Geo-flag.jpg'
-import Usa from 'images/usa-flag.jpg'
 
 
 
 export const Header = () => {
-    const { language, translate, changeLanguage } = useContext(StaticDataContext);
+    const { language, translate } = useContext(StaticDataContext);
     const { isUser } = useContext(UserDataContext)
     const { cartTotal } = useContext(CartDataContext)
     const [loginModal, setLoginModal] = useState()
@@ -28,10 +26,6 @@ export const Header = () => {
         setProfileMenu(!profileMenu)
     }
 
-    const openMenu = () => {
-
-    }
-
     return (
         <>
             <header className="header">
@@ -43,13 +37,11 @@ export const Header = () => {
                     <nav className="bg-white-800">
                         <div className="max-w-7xl mx-auto px-4">
                             <div className="flex justify-between items-center h-16">
-                                {/* Logo */}
                                 <div className="col-lg-3">
                                     <div className="header__logo px-10">
                                         <Link to={`/${language}`}><img src={Logo} alt="" /></Link>
                                     </div>
                                 </div>
-                                {/* Mobile Menu */}
                                 <div className="block md:hidden">
                                     <button
                                         onClick={() => setIsOpen(!isOpen)}
@@ -71,7 +63,6 @@ export const Header = () => {
                                         </svg>
                                     </button>
                                 </div>
-                                {/* Navigation Links */}
                                 <div className="hidden md:flex md:items-center md:space-x-4">
                                     <nav className="header__menu">
                                         <ul className='flex w-[100%] items-center justify-center text-sm space-x-10 '>
@@ -84,7 +75,6 @@ export const Header = () => {
                                         </ul>
                                     </nav>
                                 </div>
-                                {/* Cart and Sign In Button */}
                                 <div className="flex items-center">
                                     <div className="relative">
                                         <div className="header__top__right__social">
@@ -97,7 +87,6 @@ export const Header = () => {
                                                 {cartTotal()}
                                             </span>
                                         </div>
-
                                     </div>
                                     <div className="ml-3" onClick={!isUser ? toggleLoginForm : toggleProfileMenu}>
                                         <p className="fa fa-user cursor-pointer mt-2  text-black font-bold font-thin px-1 rounded">{!isUser ? 'შესვლა' : 'პროფილი'}</p>
@@ -105,7 +94,6 @@ export const Header = () => {
                                 </div>
                             </div>
                         </div>
-                        {/* Mobile Menu */}
                         {isOpen && (
                             <div className="md:hidden">
                                 <div className="px-2 pt-2 pb-3 space-y-1 bg-slate-200 text-center w-full  rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 divide-y divide-gray-100 focus:outline-none">
@@ -121,9 +109,7 @@ export const Header = () => {
                             </div>
                         )}
                     </nav>
-                    {/* <div className="humberger__open">
-                        <i className="fa fa-bars"></i>
-                    </div> */}
+
                 </div>
                 {loginModal ?
                     <LoginForm

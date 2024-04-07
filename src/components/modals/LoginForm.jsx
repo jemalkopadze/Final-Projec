@@ -1,31 +1,40 @@
-import React from 'react'
-import { useContext } from 'react';
+import React, { useContext, useEffect, useRef } from 'react';
 import { StaticDataContext } from 'global/context/StaticDataContext';
 import { UserDataContext } from 'global/context/UserDataContext';
-import { Formik, Form, Field, ErrorMessage } from "formik"
+import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from 'yup';
 import { userLogin } from 'global/api/endpoint';
 import { storeUser } from 'global/api/auth';
 
-export const LoginForm = ({toggle}) => {
+export const LoginForm = ({ toggle }) => {
   const { translate } = useContext(StaticDataContext);
-  const {loginUser} = useContext(UserDataContext)
+  const { loginUser } = useContext(UserDataContext);
+  const formRef = useRef(null);
 
   const onSubmit = async (values, { setSubmitting }) => {
-    setSubmitting(true)
-    const getTokendata = await userLogin(values)
+    setSubmitting(true);
+    const getTokendata = await userLogin(values);
     if (getTokendata) {
-      storeUser(getTokendata)
-      loginUser()
-      toggle()
+      storeUser(getTokendata);
+      loginUser();
+      toggle();
     }
-  }
+  };
 
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (formRef.current && !formRef.current.contains(event.target)) {
+        toggle();
+      }
+    };
 
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [toggle]);
 
-
-
-  let config = {
+  const config = {
     initialValues: {
       username: "mor_2314",
       password: "83r5^_"
@@ -35,11 +44,10 @@ export const LoginForm = ({toggle}) => {
       password: Yup.string().required(translate.loginForm.required)
     }),
     onSubmit: onSubmit
-  }
-
+  };
 
   return (
-    <div className='login-form position: relative'>
+    <div ref={formRef} className='login-form position: relative'>
       <h2 className="text-center text-lg	">
         {translate.loginForm.title}
       </h2>
@@ -75,5 +83,5 @@ export const LoginForm = ({toggle}) => {
         )}
       </Formik>
     </div>
-  )
-}
+  );
+};

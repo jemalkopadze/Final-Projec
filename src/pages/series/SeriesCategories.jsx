@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import { SeriesCategoryCard } from 'components/cards/SeriesCategoryCard';
 import { Loader } from 'components';
 
+
 export const SeriesCategories = () => {
     const {categoryId} = useParams()
     const [seriesCategory, setSeriesCategory] = useState([]);

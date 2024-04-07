@@ -1,5 +1,4 @@
 import React, { useContext } from 'react'
-import { Link } from 'react-router-dom'
 import { AddToCart } from 'components'
 import { StaticDataContext } from 'global/context/StaticDataContext'
 
@@ -17,16 +16,15 @@ export const ProductCards = ({ product }) => {
                             <p className="leading-relaxed">{product.description}</p>
 
                         </div>
-                        <div className="flex">
+                        <div className="flex justify-between mb-10">
                             <span className="title-font font-medium text-2xl text-orange-500">
                                 {product.variations[0]?.price}₾
                             </span>
                                 <AddToCart book={product} />
-                            <button className="rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
-                            </button>
                         </div>
                     </div>
-                    <div>
+                    <div className='mt-20'>
+                        <h3 className='mb-5 text-slate-500'>პროდუქტის შესახებ</h3>
                         <p>{translate.details.author} - - - - - - - - - - - - - - - - - - - - - -  {product.author?.fullname}</p>
                         <p>{translate.details.genre} - - - - - - - - - - - - - - - - - - - - - - {product.category?.name}</p>
                         <p>{translate.details.serie} - - - - - - - - - - - - - - - - - - - - - - -   {product.series?.title}</p>
