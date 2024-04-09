@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useContext } from 'react'
 import { getBestOfWeekAuthor } from 'global/api/endpoint';
 import { StaticDataContext } from 'global/context/StaticDataContext';
-import { Link } from 'react-router-dom';
 
 
 export const BestAuthor = () => {
@@ -37,28 +36,5 @@ export const BestAuthor = () => {
         </div>
       </div>
     </section>
-
-
-    // <section className="flex flex-col author-card text-gray-600 body-font shadow-2xl mt-2 rounded rounded-md">
-    //   <h3 className='my-10 mb-[-120px] underline-offset-3 pl- pt-4'>{translate.weekAuthor.title}</h3>
-    //   <div className="container px-5 py-24 mx-auto flex flex-row">
-    //     <div className="flex flex-col">
-    //       <div className="flex flex-col sm:flex-row mt-10">
-    //         <div className=" sm:pr-8 sm:py-8">
-    //           <div className="w-60">
-    //             <img className="" src={bestAuthor.img} alt='' />
-    //           </div>
-    //         </div>
-    //         <div className="sm:w-2/3 sm:pl-8 sm:py-8 sm:border-l border-gray-200 sm:border-t-0 border-t mt-0 pt-0 sm:mt-0 text-center sm:text-left ">
-    //           <div className='flex justify-between aling-center'>
-    //             <h2 className='text-left mb-8 '>{bestAuthor.fullname}</h2>
-    //           </div>
-    //           <p className="text-wrap">{bestAuthor.description}</p>
-
-    //         </div>
-    //       </div>
-    //     </div>
-    //   </div>
-    // </section>
   )
 }

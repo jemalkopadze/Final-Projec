@@ -11,16 +11,6 @@ export const LoginForm = ({ toggle }) => {
   const { loginUser } = useContext(UserDataContext);
   const formRef = useRef(null);
 
-  const onSubmit = async (values, { setSubmitting }) => {
-    setSubmitting(true);
-    const getTokendata = await userLogin(values);
-    if (getTokendata) {
-      storeUser(getTokendata);
-      loginUser();
-      toggle();
-    }
-  };
-
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (formRef.current && !formRef.current.contains(event.target)) {
@@ -33,6 +23,16 @@ export const LoginForm = ({ toggle }) => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, [toggle]);
+
+  const onSubmit = async (values, { setSubmitting }) => {
+    setSubmitting(true);
+    const getTokendata = await userLogin(values);
+    if (getTokendata) {
+      storeUser(getTokendata);
+      loginUser();
+      toggle();
+    }
+  };
 
   const config = {
     initialValues: {
@@ -48,14 +48,14 @@ export const LoginForm = ({ toggle }) => {
 
   return (
     <div ref={formRef} className='login-form position: relative'>
-      <h2 className="text-center text-lg	">
+      <h2 className="text-xl font-semibold text-gray-900 text-center">
         {translate.loginForm.title}
       </h2>
       <Formik {...config}>
         {({ isSubmitting, errors }) => (
           <Form>
-            <div className='row'>
-              <div className='userInput'>
+            <div className='row mt-4'>
+              <div className='userInput '>
                 <Field
                   type="username"
                   name="username"
@@ -73,7 +73,7 @@ export const LoginForm = ({ toggle }) => {
                 />
                 <ErrorMessage name="password" component="label" />
               </div>
-              <div className='button'>
+              <div className='button '>
                 <button type="submit" disabled={isSubmitting || errors.length > 0}>
                   {translate.loginForm.login}
                 </button>

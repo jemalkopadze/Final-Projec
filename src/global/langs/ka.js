@@ -7,9 +7,8 @@ export const kaLang = {
         authors: 'ავტორები',
         subscribe: 'გამოწერები',
         contact: 'კონტაქტი',
-        about: 'შესახებ',
+        about: 'ჩვენ შესახებ',
         item: 'ნივთი',
-        login: 'შესვლა',
         registration: 'რეგისტრაცია',
         cart: 'კალათა'
     },

@@ -21,17 +21,19 @@ export const Home = () => {
   return (
 
     <div className='hero__item'>
-      {products.length > 0 ?
-        <Slider>
-          {products.map((product, index) => (
-            <div key={`product-${index}`}>
-              <img src={product.img} alt='' />
-            </div>
-          ))}
-        </Slider>
-        : <Loader />}
-      <BestAuthor  products={products}/>
-      <Carousel />
+      <div className='slider_item'>
+        {products.length > 0 ?
+          <Slider>
+            {products.map((product, index) => (
+              <div key={`product-${index}`}>
+                <img src={product.img} alt='' />
+              </div>
+            ))}
+          </Slider>
+          : <Loader />}
+        <BestAuthor products={products} />
+        <Carousel />
+      </div>
     </div>
   );
 }
