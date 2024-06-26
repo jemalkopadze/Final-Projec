@@ -29,7 +29,7 @@ export const Cart = () => {
                     />
                   </div>
                   <div className="flex items-center justify-end space-x-4">
-                    <p className="text-sm">{item.Price * item.Quantity} ₾</p>
+                    <p className="text-sm">{parseFloat(item.Price * item.Quantity).toFixed(2)} ₾</p>
                   </div>
                 </div>
               </div>

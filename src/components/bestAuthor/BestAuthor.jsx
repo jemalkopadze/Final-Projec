@@ -4,7 +4,6 @@ import { StaticDataContext } from 'global/context/StaticDataContext';
 
 
 export const BestAuthor = () => {
-  const { language } = useContext(StaticDataContext);
   const { translate } = useContext(StaticDataContext);
 
   const [bestAuthor, setBestAuthor] = useState([]);

@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom"
 import { useContext } from "react"
 import { StaticDataContext } from "global/context/StaticDataContext"
+import img0 from "theme/arrayImg/img0.jpeg"
 import img1 from "theme/arrayImg/img1.jpg"
 import img2 from "theme/arrayImg/img2.jpg"
 import img3 from "theme/arrayImg/img3.jpg"
@@ -39,6 +40,7 @@ import img35 from "theme/arrayImg/img35.jpg"
 import img36 from "theme/arrayImg/img36.jpg"
 import img37 from "theme/arrayImg/img37.jpg"
 import img38 from "theme/arrayImg/img38.jpg"
+import img39 from "theme/arrayImg/img39.jpg"
 
 
 
@@ -46,11 +48,11 @@ import img38 from "theme/arrayImg/img38.jpg"
 export const CategoryCards = ({ category = [] }) => {
     const { language } = useContext(StaticDataContext);
     const imgArry = [
-        img1, img2, img3, img4, img5, img6, img7,
+        img0,img1, img2, img3, img4, img5, img6, img7,
         img8, img9, img10, img11, img12, img13, img14, img15, 
-        img16, img17, img18, img19, img20, img21, img22, img23, 
+        img16, img17, img18, img19, img20, img21, img22,img23, 
         img24, img25, img26, img27, img28, img29, img30, img31, 
-        img32, img33, img34, img35, img36, img37, img38
+        img32, img33, img34, img35, img36, img37, img38, img39
     ]
 
     return (

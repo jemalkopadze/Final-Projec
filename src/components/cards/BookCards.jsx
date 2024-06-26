@@ -15,7 +15,7 @@ export const BookCards = ({ Book = [] }) => {
                     {Book.map((Book, index) => (
                         <div key={`Book-${index}`} className="lg:w-1/4 md:w-1/2 p-4 w-full h-full">
                             <Link to={`/${language}/products/${Book.id}`} className="block relative h-100 rounded overflow-hidden min-h-[400px] mt-5">
-                                <img alt={Book.id} className="object-cover object-center w-full h-[100%] block" src={Book.pictures} />
+                                <img alt={Book.id} className="object-cover object-center w-full min-h-[343px] block" src={Book.pictures} />
                             </Link>
                             <div className="mt-1">
                                 <h2 className="text-center text-gray-900 title-font text-lg font-medium h-[80px] overflow-hidden">{Book.name}</h2>

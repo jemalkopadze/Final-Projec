@@ -39,7 +39,7 @@ export const Header = () => {
                     <div className="container">
                     </div>
                 </div>
-                <div className="nav_container">
+                <div className="nav_container  shadow-sm">
                     <nav className="bg-white-800">
                         <div className="max-w-7xl mx-auto px-4">
                             <div className="flex justify-between items-center h-16">
