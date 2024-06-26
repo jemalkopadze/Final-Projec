@@ -6,7 +6,7 @@ export const Sidebar = () => {
     const { language, translate } = useContext(StaticDataContext);
     return (
         <div>
-            <div className="relative flex flex-col bg-clip-border rounded-xl bg-white text-gray-700 h-[calc(100vh-2rem)] w-full max-w-[20rem] h-full p-4 ">
+            <div className="relative flex flex-col mt-10 bg-clip-border rounded-xl bg-white text-gray-700 h-[calc(100vh-2rem)] w-full max-w-[20rem] h-full p-4 ">
                 <nav className="flex flex-col gap-1 min-w-[240px] p-2 font-sans text-base font-normal text-gray-700">
 
                 <Link to={`/${language}/cart`}>
